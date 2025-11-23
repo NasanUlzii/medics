@@ -1,4 +1,4 @@
-import { UserButton } from "@stackframe/stack";
+//import { UserButton } from "@stackframe/stack";
 import { BarChart3, Package, Plus, Settings } from "lucide-react";
 import Link from "next/link";
 
@@ -33,11 +33,10 @@ export default function Sidebar({
             <Link
               href={item.href}
               key={key}
-              className={`flex items-center space-x-3 py-2 px-3 rounded-lg ${
-                isActive
-                  ? "bg-purple-100 text-gray-800"
-                  : "hover:bg-gray-800 text-gray-300"
-              }`}
+              className={`flex items-center space-x-3 py-2 px-3 rounded-lg ${isActive
+                ? "bg-purple-100 text-gray-800"
+                : "hover:bg-gray-800 text-gray-300"
+                }`}
             >
               <IconComponent className="w-5 h-5" />
               <span className="text-sm">{item.name}</span>
@@ -48,7 +47,7 @@ export default function Sidebar({
 
       <div className="absolute bottom-0 left-0 right-0 p-6 borter-t border-gray-700">
         <div className="flex items-center justify-between">
-          <UserButton showUserInfo />
+          <p>UserButton showUserInfo</p>
         </div>
       </div>
     </div>

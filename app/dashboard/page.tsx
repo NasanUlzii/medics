@@ -1,13 +1,13 @@
 import ProductsChart from "@/components/products-chart";
 import Sidebar from "@/components/sidebar";
-import { getCurrentUser } from "@/lib/auth";
+//import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { TrendingUp } from "lucide-react";
 
 export default async function DashboardPage() {
-  const user = await getCurrentUser();
-  const userId = user.id;
-
+  //const user = await getCurrentUser();
+  const userId = 'cmi116o540000ecqgvdau5uc9';
+  ``
   const [totalProducts, lowStock, allProducts] = await Promise.all([
     prisma.product.count({ where: { userId } }),
     prisma.product.count({
@@ -168,8 +168,8 @@ export default async function DashboardPage() {
                   product.quantity === 0
                     ? 0
                     : product.quantity <= (product.lowStockAt || 5)
-                    ? 1
-                    : 2;
+                      ? 1
+                      : 2;
 
                 const bgColors = [
                   "bg-red-600",

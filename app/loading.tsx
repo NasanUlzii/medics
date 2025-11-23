@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BarChart3, Package, Plus, Settings } from "lucide-react";
-import { UserButton } from "@stackframe/stack";
+import { Button } from "@/components/ui/button";
+//import { UserButton } from "@stackframe/stack";
 
 // Skeleton component for loading states
 function Skeleton({ className = "" }: { className?: string }) {
@@ -56,7 +57,7 @@ function LoadingSidebar() {
             <Skeleton className="h-3 w-24" />
           </div>
           <div className="ml-3">
-            <UserButton />
+            <Button />
           </div>
         </div>
       </div>

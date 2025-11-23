@@ -32,3 +32,14 @@ export const getUser = async (userId: string) => {
         console.log(error)
     }
 }
+
+export const getPatient = async (userId: string) => {
+    try {
+        const patient = await prisma.users.findUnique({
+            where: { id: userId }
+        });
+        return parseStringify(patient)
+    } catch (error) {
+        console.log(error)
+    }
+}

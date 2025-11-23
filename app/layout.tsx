@@ -30,9 +30,7 @@ export default function RootLayout({
       <body
         className={cn('min-h-screen bg-dark-300 font-sans antialiased', geistSans.variable)}
       >
-        <StackProvider app={stackServerApp}>
-          <StackTheme theme={{}}>{children}</StackTheme>
-        </StackProvider>
+        {children}
       </body>
     </html>
   );

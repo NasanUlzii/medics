@@ -1,4 +1,4 @@
-import { RegisterForm } from '@/components/forms/RegisterForm'
+import RegisterForm from '@/components/forms/RegisterForm'
 import { getUser } from '@/lib/actions/patient.actions'
 import { Search } from 'lucide-react'
 import Image from 'next/image'
@@ -8,10 +8,11 @@ import React from 'react'
 const Register = async ({ params: { userId } }: SearchParamProps) => {
     console.log('on registeruserId', userId);
     const user = await getUser(userId);
+    console.log('on register user', user);
     return (
         <div className="flex h-screen max-h-screen">
-            <section className="remove-scrollbar container max-w-[860px] flex-1 flex-col py-10">
-                <div className="sub-container max-w-[496px]">
+            <section className="remove-scrollbar container">
+                <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
                     <Image
                         src="/assets/icons/logo-full.svg"
                         height={1000}
@@ -22,8 +23,9 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
                     <RegisterForm user={user} />
 
                     <p className="copyright py-12">
-                        © 2024 CarePulse
+                        © 2025 Mediks
                     </p>
+
                 </div>
             </section>
             <Image

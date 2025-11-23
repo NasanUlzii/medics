@@ -1,10 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "../auth";
+//import { getCurrentUser } from "../auth";
 import { prisma } from "../prisma";
 import { z } from "zod";
-
+const id = 'cmi116o540000ecqgvdau5uc9';
 const ProductSchema = z.object({
   name: z.string().min(1, "Name is required"),
   price: z.coerce.number().nonnegative("Price must be non-negative"),
@@ -14,16 +14,16 @@ const ProductSchema = z.object({
 });
 
 export async function deleteProduct(formData: FormData) {
-  const user = await getCurrentUser();
-  const id = String(formData.get("id") || "");
+  //const user = await getCurrentUser();
+  const id = 'cmi116o540000ecqgvdau5uc9';
 
   await prisma.product.deleteMany({
-    where: { id: id, userId: user.id },
+    where: { id: id, userId: id },
   });
 }
 
 export async function createProduct(formData: FormData) {
-  const user = await getCurrentUser();
+  //const user = await getCurrentUser();
 
   const parsed = ProductSchema.safeParse({
     name: formData.get("name"),
@@ -39,7 +39,7 @@ export async function createProduct(formData: FormData) {
 
   try {
     await prisma.product.create({
-      data: { ...parsed.data, userId: user.id },
+      data: { ...parsed.data, userId: id },
     });
     redirect("/inventory");
   } catch (error) {
